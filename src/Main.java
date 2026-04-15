@@ -1,20 +1,20 @@
-import Osoby.Agent;
 import Osoby.Osoba;
 
 public class Main {
     public static void main(String[] args) {
-        Osoba[] tablicaOs = new Osoba[4];
-        // Add osoby
-        Osoba test = new Agent("Imie", "nazwisko");
-        for (int i = 0; i < 3; i++) {
-            if (BuforCykliczny.czyPelna(tablicaOs)) {
-                tablicaOs = BuforCykliczny.extendOsoby(tablicaOs);
-            }
-            tablicaOs[i] = new Osoba("Imie" + i, "Nazwisko" + i);
-        }
-        tablicaOs[0] = test;
-        for (Osoba osoba: tablicaOs) {
-            System.out.println(osoba);
-        }
+        BuforCykliczny bufor = new BuforCykliczny();
+
+        //Przyklad z tresci zadania
+        Osoba o1 = new Osoba("im1", "nz1");
+        Osoba o2 = new Osoba("im2", "nz2");
+        Osoba o3 = new Osoba("im3", "nz3");
+        bufor.dodaj(o1);
+        bufor.dodaj(o1);
+        bufor.dodaj(o2);
+        bufor.pobierz();
+        bufor.dodaj(o2); 
+        bufor.pobierz(); 
+        bufor.dodaj(o3);
+        bufor.wypisz();
     }
 }
